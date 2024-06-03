@@ -35,11 +35,12 @@
         transform: translateX(-50%) scale(.8);
         transform-origin: 50% 0;
         background-color: $mainBlue;
-        padding: 25px 36px;
+        padding: 13px 29px;
 
         @mixin atMedium {
             left: auto;
             transform: translateX(0);
+            padding: 25px 36px;
 
             .site-header--dark & {
                 transform: scale(.55);
@@ -116,6 +117,7 @@
     }
 
     &__menu-content {
+        display: none;
         opacity: 0;
         transform: scale(1.2);
         transition: all .3s ease-out;
@@ -125,7 +127,7 @@
         text-align: center;
 
         @mixin atMedium {
-            display: flex;
+            display: block;
             justify-content: flex-end;
             opacity: 1;
             z-index: 1;

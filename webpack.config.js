@@ -55,11 +55,13 @@ if (currentTask == 'dev') {
         path: path.resolve(__dirname, 'app')
     }
     config.devServer = {
-        before: function (app, server) {
-            server._watch('app/**/*.html')
+        setupMiddlewares: (middlewares, devServer) => {
+            devServer.watchFiles('app/**/*.html')
+            return middlewares
         },
-
-        contentBase: path.join(__dirname, 'app'),
+        static: {
+            directory: path.join(__dirname, 'app'),
+        },
         hot: true,
         port: 3000,
         host: '0.0.0.0'
